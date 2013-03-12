@@ -1,9 +1,13 @@
 {% assign page = pages.frontpage %}
 <div class="rte index-page">
+    <h2>{{ page.title }}</h2>
     {{ page.content }}
 </div>
 
-<div class="loop index-collection">
-  <h2>
-  {% include 'product-loop' %}
+{% assign collection = collections.frontpage %}
+<div class="loop index-collection clearfix">
+  <h2>{{ collection.title }}</h2>
+    {% for product in collection.products %}
+      {% include 'product-loop' %}
+    {% endfor %}
 </div>

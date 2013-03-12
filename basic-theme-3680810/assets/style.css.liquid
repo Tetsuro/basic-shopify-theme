@@ -2,8 +2,6 @@
 
 /**** global css ****/
 
-body{font-family:Arial, Helvetica, sans-serif;}
-
 .left{float: left;}
 .right{float: right;}
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
@@ -11,21 +9,35 @@ body{font-family:Arial, Helvetica, sans-serif;}
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
 
+a {text-decoration:none;}
+
 /**** theme.liquid ****/
+
+body{font-family:Arial, Helvetica, sans-serif;}
 
 .container{width: 960px; margin: 0 auto;}
 .header-toolbar{background:#000; color: #fff; font-size:12px; padding:10px 0;}
 
 .logo{font-size: 60px; margin:40px 0; text-align:center;}
-.logo a{text-decoration: none; color: #000;}
+.logo a{color: #000;}
 
 .main-menu{text-align: center; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;}
 .main-menu li{display: inline-block; padding:0px 20px;}
-.main-menu a{text-decoration: none; color: #4e4e4e; font-weight:bold;}
+.main-menu a{ color: #4e4e4e; font-weight:bold;}
 .main-menu .current a{color: #989898;}
 
 .content{padding:30px 0;}
 
-footer{text-align:center; font-size: 12px; border-top: 1px solid #ccc;}
+footer{text-align:center; font-size: 12px; border-top: 1px solid #ccc; margin-bottom:150px;}
 footer li{display:inline-block;}
-footer li a{padding:0 20px; text-decoration:none; color: #989898;}
+footer li a{padding:0 20px; color: #989898;}
+
+
+/**** product-loop.liquid ****/
+
+.product{margin:0 20px 20px 0; width:225px; text-align:center; font-weight:bold;}
+.last{margin-right:0px;}
+.product-thumb{border:1px solid #ccc;}
+.product-thumb img{max-width:100%; height: auto;}
+.product-title{ margin-top:10px;}
+.product-price{font-size:14px;}
