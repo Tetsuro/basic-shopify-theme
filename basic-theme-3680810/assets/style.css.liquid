@@ -4,6 +4,12 @@
 
 body{font-family:Arial, Helvetica, sans-serif;}
 
+.left{float: left;}
+.right{float: right;}
+/* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
 
 /**** theme.liquid ****/
 

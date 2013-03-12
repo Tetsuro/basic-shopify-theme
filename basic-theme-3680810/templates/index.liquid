@@ -1,1 +1,9 @@
-this is the index template!
+{% assign page = pages.frontpage %}
+<div class="rte index-page">
+    {{ page.content }}
+</div>
+
+<div class="loop index-collection">
+  <h2>
+  {% include 'product-loop' %}
+</div>
