@@ -1,0 +1,32 @@
+<!-- START COLLECTIONS -->{% if linklists[settings.featured_collections_linklist].links.size > 0 %}
+<ul id="products" class="clear">{% for link in linklists[settings.featured_collections_linklist].links %}{% if link.type == 'collection_link' %}
+	<!-- START PRODUCT {{ forloop.index }} -->
+	<li{% cycle '', '', ' class="end"' %}>
+		<!-- START IMAGE -->
+		<div class="image">
+			<div class="align">
+				<div><a href="{{ link.url }}"><img src="{{ link.object.products.first.images[0] | product_img_url: "medium" }}" alt="{{ link.title | escape }}" /></a></div>
+			</div>
+		</div>
+		<!-- END IMAGE -->
+		<h3><a href="{{ link.url }}">{{ link.title | truncate: 25 }}</a></h3>
+		<p>{{ link.object.all_products_count }} {{ link.object.all_products_count | pluralize: 'item', 'items' }}</p>
+	</li>{% endif %}
+	<!-- END PRODUCT {{ forloop.index }} -->{% endfor %}
+</ul>{% else %}
+<ul id="products" class="clear">{% for collection in collections %}{% unless collection.handle == 'frontpage' or collection.handle == 'all' or collection.handle == 'all-products' or collection.handle == 'related' %}
+    <!-- START PRODUCT {{ forloop.index }} -->
+	<li{% cycle '', '', ' class="end"' %}>
+		<!-- START IMAGE -->
+		<div class="image">
+			<div class="align">
+				<div><a href="{{ collection.url }}"><img src="{{ collection.products.first.images[0] | product_img_url: "medium" }}" alt="{{ collection.title | escape }}" /></a></div>
+			</div>
+		</div>
+		<!-- END IMAGE -->
+		<h3><a href="{{ collection.url }}">{{ collection.title | escape | truncate: 25 }}</a></h3>
+		<p>{{ collection.all_products_count }} {{ collection.all_products_count | pluralize: 'item', 'items' }}</p>
+	</li>{% endunless %}
+	<!-- END PRODUCT {{ forloop.index }} -->{% endfor %}
+</ul>{% endif %}
+<!-- END COLLECTIONS -->
