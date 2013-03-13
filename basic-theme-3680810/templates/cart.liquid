@@ -1,3 +1,8 @@
+<h2>You Cart</h2>
+
+
+{% if cart.item_count > 0 %}
+
 <form action="/cart" method="post">
 
   <table class="cart-table">
@@ -58,3 +63,9 @@
     </div>
     
 </form>
+
+{% else %}
+
+You don't have any items in your cart!
+
+{% endif %}
