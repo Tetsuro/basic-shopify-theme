@@ -17,21 +17,33 @@
   </div>
 
   <div class="product-details left">
-    <h2>{{ product.title }}</h2>
+    <h2 class="product-title">{{ product.title }}</h2>
     <div class="product-desc rte">{{ product.description}}</div>
-    <form action="/cart/add" method="post">
-      <div class="product-variants">
-          <div class="price-field"></div>
+    <div class="price-field"></div>
 
-          <select id="product-select" name="id">
-            {% for variant in product.variants %}
-              <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
-            {% endfor %}
-          </select>
+    <form action="/cart/add" method="post" class="product-form">
+      <div class="product-variants">
+
+        <select id="product-select" name="id">
+          {% for variant in product.variants %}
+          <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+          {% endfor %}
+        </select>
       </div>
 
-        <input type="submit" name="add" value="Purchase" id="purchase" />
+      <input type="submit" name="add" value="Purchase" class="btn" />
     </form>
+    {% if collection %}
+    <div class="product-nav clearflex">
+       {% if collection.previous_product %}
+         <span class="left">{{ '&larr; Previous Product' | link_to: collection.previous_product }}</span>
+       {% endif %}
+       {% if collection.next_product %}
+
+         <span class="right">{{ 'Next Product &rarr;' | link_to: collection.next_product }}</span>
+       {% endif %}
+     </div>
+     {% endif %}
   </div>
 
 </div>
@@ -54,6 +66,10 @@ var selectCallback = function(variant, selector) {
 // initialize multi selector for product
 jQuery(function() {
   new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+  jQuery('.selector-wrapper').addClass('clearfix');
+  {% if product.options.size == 1 %}
+  jQuery('.selector-wrapper').prepend("<label for='product-select-option-0'>{{ product.options.first }}</label>");
+  {% endif %}
 });
 // ]]>
 </script>

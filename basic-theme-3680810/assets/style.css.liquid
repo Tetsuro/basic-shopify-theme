@@ -5,10 +5,14 @@
 .left{float: left;}
 .right{float: right;}
 .last{margin-right:0px !important;}
+
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
+
+.btn{background: #2c2b2b; border: none !important; display:inline-block; color:#fff; padding:9px 13px; text-transform: uppercase;font-size:0.8em; font-weight: bold; 	border-radius: 8px;}
+.btn:hover{backgroudn:##585656;}
 
 a {text-decoration:none; color:#5fa6d8;}
 a:hover{color:#84ddf2;}
@@ -57,4 +61,13 @@ footer li a{padding:0 20px; color: #989898;}
 .product-featured-image{border: 1px solid #ccc; padding:10px; margin-bottom:20px;}
 .product-img{border: 1px solid #ccc; text-align:center; padding:10px; margin-right:20px; width:100px;}
 
-.product-details{width: 465px;}
+.product-details{width: 524px;}
+.product-title{margin-top:0px;}
+.product-desc, .price-field, .product-form{margin-bottom:30px;}
+.price-field{font-weight:bold;}
+.product-form{text-align: right;} 
+.selector-wrapper{padding:10px 0; border-bottom:1px solid #ccc;}
+.selector-wrapper label, .selector-wrapper select{display: inline-block;}
+.selector-wrapper label{float:left;}
+.selector-wrapper select{float:right;}
+.product-variants{margin-bottom:10px;}
