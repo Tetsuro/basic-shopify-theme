@@ -1,18 +1,17 @@
-/**** this will be my stylesheet****/
 
 /**** global css ****/
 
 .left{float: left;}
 .right{float: right;}
 .last{margin-right:0px !important;}
+.no-border{border:none !important;}
+.btn{background: #2c2b2b; border: none !important; display:inline-block; color:#fff; padding:9px 13px; text-transform: uppercase;font-size:0.8em; font-weight: bold; 	border-radius: 8px;}
+.btn:hover{background:#585656; color:#fff;}
 
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-
-.btn{background: #2c2b2b; border: none !important; display:inline-block; color:#fff; padding:9px 13px; text-transform: uppercase;font-size:0.8em; font-weight: bold; 	border-radius: 8px;}
-.btn:hover{background:#585656;}
 
 a {text-decoration:none; color:#5fa6d8;}
 a:hover{color:#84ddf2;}
@@ -42,7 +41,7 @@ footer li a{padding:0 20px; color: #989898;}
 
 /**** product-loop.liquid ****/
 
-.product{margin:0 20px 20px 0; width:225px; text-align:center; font-weight:bold;}
+.product{margin:0 20px 30px 0; width:225px; text-align:center; font-weight:bold;}
 .product-thumb{border:1px solid #ccc; padding:10px;}
 .product-thumb img{max-width:100%; height: auto;}
 .product-title{ margin-top:10px;}
@@ -83,3 +82,15 @@ footer li a{padding:0 20px; color: #989898;}
 .item-thumb{border:1px solid #ccc; padding:20px; width: 100px; height:100px;}
 .item-qty{width:90px;}
 .cart-options{text-align: right;}
+
+
+/**** blog.liquid ****/
+
+.blog-title{margin-bottom:0px; font-size: 20px;}
+.blog-article{border-bottom:1px solid #ccc; padding-bottom:30px; margin-bottom: 30px;}
+.blog-data{font-size:13px; font-weight: bold; margin-top:5px;}
+.blog-content{margin-bottom:30px;}
+.blog-tags{width:800px; font-weight:bold; font-size:14px;}
+.blog-read-more{width:121px;}
+
+
