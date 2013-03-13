@@ -46,7 +46,7 @@
     
     
     <div class="cart-options">
-      <h3>Subtotal <em>{{ cart.total_price | money }}</em></h3>
+      <h3>Subtotal: {{ cart.total_price | money }}</h3>
       <input type="submit" name="update" value="Update cart" class="btn" />
       <span class="or">or</span>
       <input type="submit" name="checkout" value="Check out" class="btn"   />    

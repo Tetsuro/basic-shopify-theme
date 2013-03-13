@@ -18,8 +18,10 @@
 
 <body>
     <div class="header-toolbar">
-      <div class="container">
-        My header bar will go here.
+      <div class="container clearfix">
+          <div class="right">
+            Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
+          </div>
       </div>
     </div>
     <div class="container">
