@@ -1,55 +1,60 @@
 <form action="/cart" method="post">
-  
-  <table>
-    
+
+  <table class="cart-table">
+
     <thead>
       <tr>
-        <th>Item</th>
         <th>&nbsp;</th>
+        <th>Product Title</th>
         <th>Price</td>
-        <th>Quantity</th>
-        <th>Total</th>
-        <th>&nbsp;</th>
-      </tr>
-    </thead>
-    
-    <tbody>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
 
-    {% for item in cart.items %}    
-  
-      
- 
-      <tr>
-        <td>
-          <a href="{{ item.product.url | within: collections.all }}">  
-            <img src="{{ item.product.featured_image.src | product_img_url: 'compact' }}" alt="{{ item.title | escape }}" />
-          </a>
-        </td>
-        <td>
-          <h2>
-            <a href="{{ item.product.url | within: collections.all }}">
-            {{ item.title }}
-            {% if item.product.variants.size == 1 %}
-              {% unless item.variant.title contains 'Default' %}
-               - {{ item.variant.title }}
-              {% endunless %}
-            {% endif %}
-            </a>
-          </h2>
-        
-          <h3>{{ item.vendor }}</h3>
-        </td>
-        <td>{{ item.price | money }}</td>
-        <td>
-          <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" />
-        </td>
-        <td>{{ item.line_price | money }}</td>
-        <td>
-          <a href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
-        </td>
-      </tr>
-    {% endfor %}
+      <tbody>
+
+        {% for item in cart.items %}    
+        <tr>
+          <td>
+            <div class="item-thumb">
+              <a href="{{ item.product.url }}">  
+                <img src="{{ item.product.featured_image.src | product_img_url: 'small' }}" alt="{{ item.title | escape }}" />
+              </a>
+            </div>
+          </td>
+          <td>
+            <div class="item-title">
+              <a href="{{ item.product.url | within: collections.all }}">{{ item.title }}</a>
+            </div>
+          </td>
+          <td>{{ item.price | money }}</td>
+          <td>
+            <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" class="item-qty" />
+          </td>
+          <td>{{ item.line_price | money }}</td>
+          <td>
+            <a href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
+          </td>
+        </tr>
+        {% endfor %}
+
+      </tbody>
+
+    </table>
     
-    </tbody>
     
-  </table>
+    <div class="cart-options">
+      <h3>Subtotal <em>{{ cart.total_price | money }}</em></h3>
+      <input type="submit" name="update" value="Update cart" class="btn" />
+      <span class="or">or</span>
+      <input type="submit" name="checkout" value="Check out" class="btn"   />    
+      {% if additional_checkout_buttons %}
+      <p class="additional-checkout-buttons">
+        {{ content_for_additional_checkout_buttons }}
+      </p>
+      {% endif %}    
+    </div>
+    
+</form>
