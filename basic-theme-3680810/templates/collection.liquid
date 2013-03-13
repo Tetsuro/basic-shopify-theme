@@ -1,1 +1,20 @@
-this is the collection template!
+{% paginate collection.products by 4 %}
+
+
+<div class="loop index-collection clearfix">
+  <h2>{{ collection.title }}</h2>
+  <div class="collection-desc rte">
+    {{ collection.description }}
+  </div>
+    {% for product in collection.products %}
+      {% include 'product-loop' %}
+    {% endfor %}
+</div>
+
+{% if paginate.pages > 1 %}
+<div class="pagination">
+  {{ paginate | default_pagination }}
+</div>
+{% endif %}
+
+{% endpaginate %}

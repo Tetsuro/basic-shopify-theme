@@ -4,6 +4,7 @@
 
 .left{float: left;}
 .right{float: right;}
+.last{margin-right:0px !important;}
 /* Contain floats: nicolasgallagher.com/micro-clearfix-hack/ */ 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
@@ -38,8 +39,22 @@ footer li a{padding:0 20px; color: #989898;}
 /**** product-loop.liquid ****/
 
 .product{margin:0 20px 20px 0; width:225px; text-align:center; font-weight:bold;}
-.last{margin-right:0px;}
-.product-thumb{border:1px solid #ccc;}
+.product-thumb{border:1px solid #ccc; padding:10px;}
 .product-thumb img{max-width:100%; height: auto;}
 .product-title{ margin-top:10px;}
 .product-price{font-size:14px;}
+
+
+/**** collection.liquid ****/
+
+.pagination{text-align:center; border-top:1px solid #ccc; padding-top: 30px; margin-top: 30px;}
+
+/**** product.liquid ****/
+
+.product-images{width:406px;}
+.product-images{margin-right:30px;}
+.product-images img{max-width: 100%; height: auto;}
+.product-featured-image{border: 1px solid #ccc; padding:10px; margin-bottom:20px;}
+.product-img{border: 1px solid #ccc; text-align:center; padding:10px; margin-right:20px; width:100px;}
+
+.product-details{width: 465px;}

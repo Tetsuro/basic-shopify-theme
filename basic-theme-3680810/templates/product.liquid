@@ -1,1 +1,59 @@
-this is the product template!
+<div class="product-page clearfix">
+  <div class="product-images left">
+    <div class="product-featured-image">
+      <a href="{{ product.featured_image.src | product_img_url: 'original' }}">
+        <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
+      </a>
+    </div>
+    <div class="product-img-list clearfix">
+      {% for image in product.images %}       
+      <div class="product-img left {% cycle '','','last' %}">
+        <a href="{{ image.src | product_img_url: 'original' }}">
+          <img src="{{ image.src | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" />
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="product-details left">
+    <h2>{{ product.title }}</h2>
+    <div class="product-desc rte">{{ product.description}}</div>
+    <form action="/cart/add" method="post">
+      <div class="product-variants">
+          <div class="price-field"></div>
+
+          <select id="product-select" name="id">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+            {% endfor %}
+          </select>
+      </div>
+
+        <input type="submit" name="add" value="Purchase" id="purchase" />
+    </form>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+// <![CDATA[  
+var selectCallback = function(variant, selector) {
+  if (variant && variant.available == true) {
+    // selected a valid variant
+    jQuery('.purchase').removeClass('disabled').removeAttr('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
+    jQuery('.price-field').html(Shopify.formatMoney(variant.price, "{{shop.money_with_currency_format}}"));  // update price field
+  } else {
+    // variant doesn't exist
+    jQuery('.purchase').addClass('disabled').attr('disabled', 'disabled');      // set add-to-cart button to unavailable class and disable button
+    var message = variant ? "Sold Out" : "Unavailable";    
+    jQuery('.price-field').text(message); // update price-field message
+  }
+};
+
+// initialize multi selector for product
+jQuery(function() {
+  new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+});
+// ]]>
+</script>
