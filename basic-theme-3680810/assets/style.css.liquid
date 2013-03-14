@@ -16,6 +16,8 @@
 a {text-decoration:none; color:#5fa6d8;}
 a:hover{color:#84ddf2;}
 
+p{line-height:1.45em;}
+
 /**** theme.liquid ****/
 
 body{font-family:Arial, Helvetica, sans-serif;}
@@ -75,7 +77,6 @@ footer li a{padding:0 20px; color: #989898;}
 /**** cart.liquid ****/
 
 .cart-table{width: 100%;}
-.cart-table tbody{}
 .cart-table thead{border-bottom:1px solid #ccc;}
 .cart-table th{text-align: left; padding:20px;}
 .cart-table td{padding:30px 10px 0 10px; }
@@ -86,11 +87,25 @@ footer li a{padding:0 20px; color: #989898;}
 
 /**** blog.liquid ****/
 
-.blog-title{margin-bottom:0px; font-size: 20px;}
+.blog-title{margin-bottom:0px; }
 .blog-article{border-bottom:1px solid #ccc; padding-bottom:30px; margin-bottom: 30px;}
 .blog-data{font-size:13px; font-weight: bold; margin-top:5px;}
 .blog-content{margin-bottom:30px;}
 .blog-tags{width:800px; font-weight:bold; font-size:14px;}
-.blog-read-more{width:121px;}
+.blog-read-more{width:122px;}
 
+/**** article.liquid ****/ 
 
+.single-article{border-bottom:none; margin-bottom: 0;}
+
+.comments{border-top:1px solid #ccc; margin-bottom:30px;}
+.comment{margin-bottom: 30px;}
+.comment-author{font-weight:bold; font-size:20px;}
+
+.comment-entries label, .comment-entries input, .comment-entries textarea{ display:block;}
+.comment-entries label{font-size:14px;}
+.comment-entries input, .comment-entries textarea{border: 1px solid #ccc; padding:5px;}
+.comment-entries textarea{width:350px; height:180px;}
+
+.errors{color:#e00000;}
+.error{border: 1px solid #e00000 !important;}

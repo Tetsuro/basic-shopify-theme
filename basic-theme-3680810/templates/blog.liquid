@@ -8,7 +8,7 @@
 
   {% for article in blog.articles %}
   <div class="blog-article {% if forloop.last %}no-border{% endif %}">
-    <h2 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a> </h2>
+    <h3 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a> </h3>
     <div class="blog-data">
       {{ article.published_at | date: '%b %d, %Y' }}
       {% if blog.comments_enabled? %}
@@ -20,14 +20,14 @@
     </div>
     
     <div class="clearfix">
+      {% if article.tags.size > 0 %}      
       <div class="blog-tags left">
-        {% if article.tags.size > 0 %}
         tags:
         {% for tag in article.tags %} 
         <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
         {% endfor %}
-      {% endif %}
       </div>
+      {% endif %}
       <div class="blog-read-more right">
         <a class="btn" href="{{ article.url }}">Read more →</a>
       </div>
