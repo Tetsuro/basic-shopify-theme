@@ -19,7 +19,14 @@
 <body>
     <div class="header-toolbar">
       <div class="container clearfix">
-          <div class="right">
+          <div class="header-search right">
+             <form action="/search" method="get" class="search-form" role="search">
+                <input name="q" type="text" class="search-field" placeholder="Search store..."/>
+                <input type="submit" class="btn " value="Search" />
+              </form>
+          
+          </div>
+          <div class="cart-info right">
             Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
           </div>
       </div>
