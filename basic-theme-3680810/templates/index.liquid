@@ -5,7 +5,7 @@
 </div>
 
 {% assign collection = collections.frontpage %}
-<div class="loop index-collection clearfix">
+<div class="index-collection clearfix">
   <h2>{{ collection.title }}</h2>
     {% for product in collection.products %}
       {% include 'product-loop' %}

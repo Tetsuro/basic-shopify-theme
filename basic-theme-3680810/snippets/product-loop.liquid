@@ -12,8 +12,5 @@
   <div class="product-price">
     {% if product.price_varies %}From{% endif %}
     {{ product.price | money }}
-    {% if on_sale %}
-    <s class="compare-at-price">{{ product.compare_at_price | money }}</s>
-    {% endif %}
   </div>
 </div>
